@@ -8,33 +8,35 @@ interface StepOneProps {
 
 export default function StepOne({ register, errors }: StepOneProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div>
-        <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-          Name
+        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
+          Full Name
         </label>
-        <input 
-          {...register('name')} 
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        <input
+          id="name"
+          {...register('name')}
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
           placeholder="Enter your full name"
         />
-        {errors?.name && (
-          <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+        {errors.name && (
+          <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-1 font-medium text-gray-700 dark:text-gray-300">
-          Email
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
+          Email Address
         </label>
         <input
-          {...register('email')}
+          id="email"
           type="email"
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          {...register('email')}
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
           placeholder="Enter your email address"
         />
-        {errors?.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+        {errors.email && (
+          <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
         )}
       </div>
     </div>

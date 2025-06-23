@@ -7,30 +7,30 @@ interface SuccessProps {
 
 export default function Success({ formData, onStartOver }: SuccessProps) {
   return (
-    <div className="text-center space-y-6">
-      <div className="mb-8">
-        <div className="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className="text-center space-y-8">
+      <div>
+        <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
+          <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+        <h2 className="mt-4 text-2xl font-bold text-gray-800 dark:text-gray-100">
           Form Submitted Successfully!
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">
-          Thank you for providing your information. Here's a summary of what you submitted:
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          Thank you for providing your information. Here's a summary of your submission:
         </p>
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 text-left space-y-4">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-left space-y-6">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
           Your Information Summary
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Basic Information</h4>
-            <div className="space-y-1 text-sm">
+            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Basic Information</h4>
+            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
               <p><span className="font-medium">Name:</span> {formData.name}</p>
               <p><span className="font-medium">Email:</span> {formData.email}</p>
               <p><span className="font-medium">Gender:</span> {formData.gender}</p>
@@ -40,8 +40,8 @@ export default function Success({ formData, onStartOver }: SuccessProps) {
           </div>
 
           <div>
-            <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Professional Details</h4>
-            <div className="space-y-1 text-sm">
+            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Professional Details</h4>
+            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
               <p><span className="font-medium">Profession:</span> {formData.profession}</p>
               <p><span className="font-medium">Experience:</span> {formData.experience} years</p>
               <p><span className="font-medium">Education:</span> {formData.education}</p>
@@ -51,18 +51,18 @@ export default function Success({ formData, onStartOver }: SuccessProps) {
         </div>
 
         <div>
-          <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Address</h4>
-          <div className="text-sm">
+          <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Address</h4>
+          <div className="text-sm text-gray-600 dark:text-gray-400">
             <p>{formData.address}</p>
             <p>{formData.city}, {formData.zipCode}</p>
           </div>
         </div>
 
         <div>
-          <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Hobbies</h4>
+          <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Hobbies</h4>
           <div className="flex flex-wrap gap-2">
             {formData.hobbies.map((hobby, index) => (
-              <span key={index} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs">
+              <span key={index} className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2.5 py-1 rounded text-xs font-medium">
                 {hobby}
               </span>
             ))}
@@ -70,10 +70,10 @@ export default function Success({ formData, onStartOver }: SuccessProps) {
         </div>
 
         <div>
-          <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Technical Skills</h4>
+          <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">Technical Skills</h4>
           <div className="flex flex-wrap gap-2">
             {formData.skills.map((skill, index) => (
-              <span key={index} className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs">
+              <span key={index} className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2.5 py-1 rounded text-xs font-medium">
                 {skill}
               </span>
             ))}
@@ -81,21 +81,19 @@ export default function Success({ formData, onStartOver }: SuccessProps) {
         </div>
 
         <div>
-          <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">About You</h4>
-          <p className="text-sm text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 p-3 rounded border">
+          <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-3">About You</h4>
+          <p className="text-sm text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
             {formData.aboutYou}
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button
-          onClick={onStartOver}
-          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          Fill Another Form
-        </button>
-      </div>
+      <button
+        onClick={onStartOver}
+        className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-colors duration-200"
+      >
+        Fill Another Form
+      </button>
     </div>
   )
 }

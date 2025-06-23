@@ -91,9 +91,9 @@ export default function App() {
 
   if (isSubmitted && submittedData) {
     return (
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 flex items-center justify-center transition-colors">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-6 transition-colors duration-200">
         <ThemeToggle />
-        <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition-colors">
+        <div className="w-full max-w-4xl bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
           <Success formData={submittedData} onStartOver={onStartOver} />
         </div>
       </div>
@@ -101,44 +101,44 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-6 flex items-center justify-center transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-6 transition-colors duration-200">
       <ThemeToggle />
       
-      <div className="w-full max-w-2xl bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition-colors">
-        <div className="mb-6">
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">
+      <div className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
             Multi-Step Registration Form
           </h2>
           
           {/* Progress Bar */}
-          <div className="flex items-center space-x-2 mb-4">
+          <div className="flex items-center gap-2 mt-6 mb-4">
             {[1, 2, 3].map((stepNumber) => (
               <div key={stepNumber} className="flex items-center">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors duration-200 ${
                   stepNumber <= step 
                     ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-400'
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                 }`}>
                   {stepNumber}
                 </div>
                 {stepNumber < 3 && (
-                  <div className={`w-16 h-1 mx-2 ${
+                  <div className={`w-16 h-1 mx-2 transition-colors duration-200 ${
                     stepNumber < step 
                       ? 'bg-blue-600' 
-                      : 'bg-gray-300 dark:bg-gray-600'
+                      : 'bg-gray-200 dark:bg-gray-700'
                   }`} />
                 )}
               </div>
             ))}
           </div>
           
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300">
+          <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
             Step {step}: {getStepTitle(step)}
           </h3>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* Step Content */}
+       
           <div className="min-h-[400px]">
             {step === 1 && <StepOne register={register} errors={errors} />}
             {step === 2 && <StepTwo register={register} errors={errors} />}
@@ -151,10 +151,10 @@ export default function App() {
               type="button"
               onClick={onPrev}
               disabled={step === 1}
-              className={`px-6 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              className={`px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 ${
                 step === 1
-                  ? 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-500 hover:bg-gray-600 text-white'
+                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-500 hover:bg-gray-600 text-white dark:text-gray-100'
               }`}
             >
               Previous
@@ -164,14 +164,14 @@ export default function App() {
               <button
                 type="button"
                 onClick={onNext}
-                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-semibold text-sm hover:bg-blue-700 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-colors duration-200"
               >
                 Next
               </button>
             ) : (
               <button
                 type="submit"
-                className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="px-6 py-2.5 bg-green-600 text-white rounded-lg font-semibold text-sm hover:bg-green-700 focus:ring-2 focus:ring-green-500/20 focus:outline-none transition-colors duration-200"
               >
                 Submit
               </button>

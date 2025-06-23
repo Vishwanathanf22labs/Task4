@@ -12,75 +12,78 @@ const professions = ['Software Engineer', 'Designer', 'Teacher', 'Doctor', 'Stud
 
 export default function StepTwo({ register, errors }: StepTwoProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Gender
         </label>
-        <div className="flex gap-6">
-          <label className="flex items-center">
-            <input 
-              {...register('gender')} 
-              type="radio" 
-              value="male" 
-              className="mr-2 text-blue-600 focus:ring-blue-500" 
+        <div className="mt-2 flex gap-6">
+          <label className="flex items-center gap-2">
+            <input
+              {...register('gender')}
+              type="radio"
+              value="male"
+              className="h-4 w-4 text-blue-600 border-gray-300 dark:border-gray-600 focus:ring-blue-500"
             />
-            <span className="text-gray-700 dark:text-gray-300">Male</span>
+            <span className="text-sm text-gray-700 dark:text-gray-300">Male</span>
           </label>
-          <label className="flex items-center">
-            <input 
-              {...register('gender')} 
-              type="radio" 
-              value="female" 
-              className="mr-2 text-blue-600 focus:ring-blue-500" 
+          <label className="flex items-center gap-2">
+            <input
+              {...register('gender')}
+              type="radio"
+              value="female"
+              className="h-4 w-4 text-blue-600 border-gray-300 dark:border-gray-600 focus:ring-blue-500"
             />
-            <span className="text-gray-700 dark:text-gray-300">Female</span>
+            <span className="text-sm text-gray-700 dark:text-gray-300">Female</span>
           </label>
         </div>
         {errors.gender && (
-          <p className="text-red-500 text-sm mt-1">{errors.gender.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.gender.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="age" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Age
         </label>
         <input
+          id="age"
           {...register('age', { valueAsNumber: true })}
           type="number"
           min="18"
           max="100"
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
           placeholder="Enter your age"
         />
         {errors.age && (
-          <p className="text-red-500 text-sm mt-1">{errors.age.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.age.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Phone Number
         </label>
         <input
+          id="phone"
           {...register('phone')}
           type="tel"
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
           placeholder="Enter your phone number"
         />
         {errors.phone && (
-          <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="profession" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Profession
         </label>
-        <select 
-          {...register('profession')} 
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        <select
+          id="profession"
+          {...register('profession')}
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
         >
           <option value="">-- Select Profession --</option>
           {professions.map((profession) => (
@@ -90,39 +93,40 @@ export default function StepTwo({ register, errors }: StepTwoProps) {
           ))}
         </select>
         {errors.profession && (
-          <p className="text-red-500 text-sm mt-1">{errors.profession.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.profession.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Hobbies
         </label>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="mt-2 grid grid-cols-2 gap-3">
           {hobbiesList.map((hobby) => (
             <label key={hobby} className="flex items-center gap-2">
-              <input 
-                type="checkbox" 
-                value={hobby} 
-                {...register('hobbies')} 
-                className="text-blue-600 focus:ring-blue-500"
+              <input
+                type="checkbox"
+                value={hobby}
+                {...register('hobbies')}
+                className="h-4 w-4 text-blue-600 border-gray-300 dark:border-gray-600 focus:ring-blue-500"
               />
-              <span className="text-gray-700 dark:text-gray-300">{hobby}</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300">{hobby}</span>
             </label>
           ))}
         </div>
         {errors.hobbies && (
-          <p className="text-red-500 text-sm mt-1">{errors.hobbies.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.hobbies.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block mb-2 font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="country" className="block text-sm font-semibold text-gray-700 dark:text-gray-200">
           Country
         </label>
-        <select 
-          {...register('country')} 
-          className="w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        <select
+          id="country"
+          {...register('country')}
+          className="mt-2 w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-colors duration-200"
         >
           <option value="">-- Select Country --</option>
           {countries.map((country) => (
@@ -132,7 +136,7 @@ export default function StepTwo({ register, errors }: StepTwoProps) {
           ))}
         </select>
         {errors.country && (
-          <p className="text-red-500 text-sm mt-1">{errors.country.message}</p>
+          <p className="mt-1 text-xs text-red-500">{errors.country.message}</p>
         )}
       </div>
     </div>
